@@ -222,8 +222,8 @@
     }
 
     .container {
-        width: 40%;
-        padding: 30px 0px;
+        width: 95%;
+        padding: 15px 0px;
         margin: 22px auto;
         border-radius: 10px;
         background-color: #f8f8f9;

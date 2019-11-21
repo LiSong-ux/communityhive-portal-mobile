@@ -71,8 +71,8 @@
     }
 
     .container {
-        width: 40%;
-        height: 350px;
+        width: 95%;
+        height: 380px;
         padding-top: 30px;
         margin: 22px auto;
         border-radius: 10px;

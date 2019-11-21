@@ -1,22 +1,25 @@
 <template>
     <div class="home">
-        <table class="table">
+        <table class="table" border="1">
             <tr class="tr_head border_bottom">
                 <th class="th_title" align="left" colspan="2">
                     <div class="title_box">全部主题</div>
                 </th>
-                <th align="center">作者</th>
+                <!--<th align="center">作者</th>
                 <th align="center">回复 / 查看</th>
-                <th align="center">最后发表</th>
+                <th align="center">最后发表</th>-->
+                <!--<th align="center"></th>
+                <th align="center"></th>
+                <th align="center"></th>-->
             </tr>
             <tr class="tr_topic" v-for="(topic, index) in topicList" :key="index">
                 <td :class="index==topicList.length-1?'label':'label border_bottom'" align="center">
                     【<span>{{ topic.label }}</span>】
                 </td>
-                <td :class="index==topicList.length-1?'title':'title border_bottom'">
+                <td :class="index==topicList.length-1?'title':'title border_bottom'" colspan="3">
                     <router-link :to="'/toTopic?id='+topic.id">{{ topic.title }}</router-link>
                 </td>
-                <td :class="index==topicList.length-1?'author':'author border_bottom'">
+                <!--<td :class="index==topicList.length-1?'author':'author border_bottom'">
                     <h3>{{ topic.username }}</h3>
                     <p>{{ topic.submittime | dateFormat }}</p>
                 </td>
@@ -27,7 +30,7 @@
                 <td :class="index==topicList.length-1?'latestReply':'latestReply border_bottom'">
                     <h3>{{ topic.lastReply }}</h3>
                     <p>{{ topic.lastSubmit | dateFormat }}</p>
-                </td>
+                </td>-->
             </tr>
         </table>
         <div class="paging_box">
@@ -88,7 +91,7 @@
 <style scoped lang="scss">
     .home {
         width: 100%;
-        padding: 0px 20px 20px 20px;
+        padding: 0px 10px 10px 10px;
         border-radius: 10px;
         background-color: #fff;
         overflow: hidden;
@@ -118,15 +121,15 @@
     }
 
     .label {
-        width: 8%;
-
+        width: 14%;
+        font-size: 1.1em;
         span {
             color: #ff78f2;
         }
     }
 
     .title {
-        width: 52%;
+        width: 86%;
         font-size: 1.2em;
         font-weight: bold;
 

@@ -1,9 +1,9 @@
 <template>
     <div id="app" class="app">
         <div class="header">
-            <div class="logo" :style="{ width: logoWidth + 'px' }">
+            <div class="logo">
                 <router-link to="/">
-                    <h1>望月社区</h1>
+                    <h2>望月社区</h2>
                 </router-link>
             </div>
             <div class="nav">
@@ -20,37 +20,18 @@
                             <span>发表帖子</span>
                         </MenuItem>
                     </router-link>
-                    <!-- <Submenu name="3">
-                        <template slot="title">
-                            <Icon type="ios-stats"/>
-                            统计分析
-                        </template>
-                        <MenuGroup title="使用">
-                            <MenuItem name="3-1">新增和启动</MenuItem>
-                            <MenuItem name="3-2">活跃分析</MenuItem>
-                            <MenuItem name="3-3">时段分析</MenuItem>
-                        </MenuGroup>
-                        <MenuGroup title="留存">
-                            <MenuItem name="3-4">用户留存</MenuItem>
-                            <MenuItem name="3-5">流失用户</MenuItem>
-                        </MenuGroup>
-                    </Submenu>
-                    <MenuItem name="4">
-                        <Icon type="ios-construct"/>
-                        综合设置
-                    </MenuItem>-->
                 </Menu>
-                <div class="login_register" v-if="!isLogin">
-                    <div class="login">
-                        <Button type="success" ghost @click="toLogin">登录</Button>
-                    </div>
-                    <div class="register">
-                        <Button type="warning" ghost @click="toRegister">注册</Button>
-                    </div>
+            </div>
+            <div class="login_register" v-if="!isLogin">
+                <div class="login">
+                    <Button type="success" size="small" ghost @click="toLogin">登录</Button>
                 </div>
-                <div class="userInfo" v-else>
-                    {{ user.username }}
+                <div class="register">
+                    <Button type="warning" size="small" ghost @click="toRegister">注册</Button>
                 </div>
+            </div>
+            <div class="userInfo" v-else>
+                {{ user.username }}
             </div>
         </div>
         <div class="main" :style="{ minHeight: minHeight + 'px' }">
@@ -77,14 +58,18 @@
         data() {
             return {
                 logoWidth: null,
+                clientWidth: null,
                 theme: 'dark',
                 minHeight: null,
                 selected: 1,
             }
         },
         mounted() {
-            this.minHeight = document.documentElement.clientHeight - 170;
-            this.logoWidth = (window.innerWidth - 1217) / 2;
+            this.minHeight = document.documentElement.clientHeight - 150;
+            // this.logoWidth = (window.innerWidth - 1217) / 2;
+            // console.log(document.documentElement.clientWidth);
+            // console.log(this.minHeight);
+            this.clientWidth = document.documentElement.clientWidth;
         },
         computed: {
             isLogin: function () {
@@ -132,19 +117,21 @@
         color: #fff;
         font-family: YouYuan;
         text-align: center;
-        margin-top: 3px;
+        margin-top: 8px;
+        margin-left: 10px;
     }
 
     .nav {
         float: left;
-        width: 1200px;
+        margin-left: 10px;
+        /*width: 1200px;*/
     }
 
     .menu {
         float: left;
         /*width: 1070px;*/
         span {
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
     }
 
@@ -153,10 +140,16 @@
         line-height: 50px !important;
     }
 
+    .nav .ivu-menu-horizontal .ivu-menu-item{
+        padding: 0 10px;
+    }
+
     .login_register {
         float: right;
-        width: 130px;
+        width: 95px;
         height: 50px;
+        margin-right: 10px;
+        line-height: 30px;
     }
 
     .login {
@@ -175,27 +168,30 @@
         height: 50px;
         color: #b9b4ff;
         line-height: 50px;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
+        margin-right: 10px;
     }
 
 
     .main {
-        width: 1200px;
+        width: 100%;
         margin: 0 auto;
-        padding: 20px 0px;
+        padding: 10px 8px;
     }
 
     .top_img {
-        margin-bottom: 10px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 5px;
     }
 
 
     .footer {
         width: 100%;
-        height: 120px;
+        height: 100px;
         color: #fff;
-        padding-top: 30px;
+        padding-top: 20px;
         text-align: center;
         background-color: #515a6e;
     }
