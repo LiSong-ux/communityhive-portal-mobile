@@ -2,19 +2,20 @@
     <div class="main">
         <div class="container">
             <h2>发表帖子</h2>
-            <div class="topic_top">
+            <!--<div class="topic_top">-->
                 <div class="topic_label">
                     <Input v-model="topic.label" maxlength="4" size="large" placeholder="四字标签" style="width: 86px;"/>
+                    <span>请输入标签</span>
                 </div>
                 <div class="topic_title">
                     <Input v-model="topic.title" maxlength="35" show-word-limit size="large" placeholder="请输入标题"
-                           style="width: 60%;"/>
-                    <span>最多输入35个字符</span>
+                           style="width: 100%;"/>
+                    <div class="topic_title_tips">最多输入35个字符</div>
                 </div>
-            </div>
+            <!--</div>-->
             <div class="topic_content">
                 <editor ref="editor"></editor>
-                <Button class="submit_button" type="primary" size="large" @click="submitTopic">发表帖子</Button>
+                <Button class="submit_button" type="primary" @click="submitTopic">发表帖子</Button>
             </div>
         </div>
     </div>
@@ -127,7 +128,7 @@
 
     .container {
         width: 95%;
-        padding: 10px 30px;
+        padding: 10px 10px;
         margin: 20px auto;
     }
 
@@ -137,25 +138,20 @@
     }
 
     .topic_label {
-        width: 20%;
-        display: inline;
+        width: 100%;
+        margin-top: 15px;
+        span {
+            margin-left: 10px;
+        }
     }
 
     .topic_title {
-        width: 80%;
-        margin-left: 15px;
-        display: inline;
+        width: 100%;
+        margin-top: 15px;
+    }
 
-        Input {
-            display: inline;
-        }
-
-        span {
-            display: inline;
-            font-size: 1.15em;
-            margin-left: 15px;
-            line-height: 38px;
-        }
+    .topic_title_tips {
+        margin-top: 5px;
     }
 
     .topic_content {

@@ -24,13 +24,15 @@
                 </div>
                 <div class="reply_content">
                     <div class="reply_quote" v-if="reply.quote!=0">
-                        <div class="quote_icon_e">
+                        <!--<div class="quote_icon_e">-->
                             <div class="reply_quote_head">
-                                <span class="reply_quote_info">{{ replyList[reply.quoteIndex].username }} 发表于 {{ replyList[reply.quoteIndex].submittime | dateFormat }}</span>
+                                <span class="font_quote">引用 @</span>
+                                <span class="reply_quote_info">{{ replyList[reply.quoteIndex].username }}</span>
+                                <span class="font_quote"> 发表的</span>
                                 <span class="reply_quote_floor">{{ replyList[reply.quoteIndex].floor }}楼</span>
                             </div>
                             <span v-html="replyList[reply.quoteIndex].content"></span>
-                        </div>
+                        <!--</div>-->
                     </div>
                     <span v-html="reply.content"></span>
                 </div>
@@ -45,20 +47,22 @@
         </div>
         <div class="submit_reply">
             <editor ref="editor" :isClear="isClear"></editor>
-            <Button class="submit_button" type="primary" size="large" @click="submitReply(0)">回复</Button>
+            <Button class="submit_button" type="primary" @click="submitReply(0)">回复</Button>
         </div>
-        <Modal class="modal_reply" v-model="modal" footer-hide width="1000">
+        <Modal class="modal_reply" v-model="modal" footer-hide>
             <div class="reply_quote" v-if="isShowQu">
                 <div class="quote_icon_e">
                     <div class="reply_quote_head">
-                        <span class="reply_quote_info">{{ toQuote.username }} 发表于 {{ toQuote.submittime | dateFormat }}</span>
+                        <span class="font_quote">引用 @</span>
+                        <span class="reply_quote_info">{{ toQuote.username }}</span>
+                        <span class="font_quote"> 发表的</span>
                         <span class="reply_quote_floor">{{ toQuote.floor }}楼</span>
                     </div>
                     <div class="modal_reply_overflow" v-html="toQuote.content"></div>
                 </div>
             </div>
             <editor ref="editor_qu" :isClear="isClear"></editor>
-            <Button class="submit_button" type="primary" size="large" @click="submitReply(1)">回复</Button>
+            <Button class="submit_button" type="primary" @click="submitReply(1)">回复</Button>
         </Modal>
     </div>
 </template>
@@ -237,13 +241,13 @@
     .topic_title {
         display: inline;
         padding: 10px 5px;
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: bold;
     }
 
     .topic_head {
         width: 100%;
-        font-size: 1.2em;
+        font-size: 1.0em;
         margin-top: 25px;
         border-bottom: 1px solid #999;
     }
@@ -251,14 +255,14 @@
     .topic_author {
         color: #27313e;
         display: inline;
-        padding: 0px 15px;
+        padding: 0px 10px;
         border-right: 2px solid darkgrey;
     }
 
     .topic_time {
         color: cadetblue;
         display: inline;
-        padding: 0px 15px;
+        padding: 0px 10px;
     }
 
     .topic_content {
@@ -278,21 +282,21 @@
 
     .reply_head {
         width: 100%;
-        font-size: 1.2em;
+        font-size: 1.0em;
         border-bottom: 1px solid #999;
     }
 
     .reply_author {
         color: #27313e;
         display: inline;
-        padding: 0px 15px;
+        padding: 0px 10px;
         border-right: 2px solid darkgrey;
     }
 
     .reply_time {
         color: cadetblue;
         display: inline;
-        padding: 0px 15px;
+        padding: 0px 10px;
     }
 
     .floor {
@@ -312,22 +316,24 @@
     .reply_quote {
         width: 100%;
         margin: 10px 0px 25px 0px;
-        padding: 10px 10px 10px 65px;
-        background: #f1f2f3 url("../assets/icons/icon_quote_s.gif") no-repeat 20px 6px;
+        background-color: #eeebeb;
+        padding: 10px 10px 10px 15px;
+        /*background: #f1f2f3 url("../assets/icons/icon_quote_s.gif") no-repeat 20px 6px;*/
     }
 
-    .quote_icon_e {
-        padding: 0px 65px 10px 0px;
-        background: url("../assets/icons/icon_quote_e.gif") no-repeat 98% 100%;
+    .font_quote {
+        font-size: 0.8em;
     }
 
     .reply_quote_info {
-        font-size: 1em;
-        color: #808695;
+        font-size: 0.8em;
+        font-weight: bold;
+        color: #005eac;
     }
 
     .reply_quote_floor {
-        font-size: 1.2em;
+        float: right;
+        font-size: 1.0em;
         font-weight: bold;
         color: darkgrey;
         margin-left: 15px;
@@ -369,14 +375,14 @@
     .submit_reply {
         width: 100%;
         padding: 35px;
-        margin: 50px auto;
+        margin: 30px auto;
         border-radius: 10px;
         background-color: #fff;
     }
 
 
     .modal_reply /deep/ .ivu-modal-body {
-        padding: 45px 30px 30px 30px !important;
+        padding: 35px 15px 15px 15px !important;
     }
 
     .modal_reply /deep/ .ivu-modal-wrap {
@@ -384,7 +390,7 @@
     }
 
     .modal_reply_overflow {
-        width: 800px;
+        width: 100%;
         height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;

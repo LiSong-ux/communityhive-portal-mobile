@@ -48,7 +48,7 @@
                 |
                 <router-link to="/">侵权与投诉</router-link>
             </div>
-            <div class="website">Copyright © 2019 啊哈哈哈哈哈啊</div>
+            <div class="website">Copyright © 2019 望月社区</div>
         </div>
     </div>
 </template>

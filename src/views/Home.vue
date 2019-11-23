@@ -29,17 +29,28 @@
                     <p>{{ topic.lastSubmit | dateFormat }}</p>
                 </td>
             </tr>-->
-            <div class="table_topic" v-for="(topic, index) in topicList" :key="index">
+            <div :class="index==topicList.length-1?'table_topic':'table_topic border_bottom'" v-for="(topic, index) in topicList" :key="index">
                 <div>
                     【<span class="label">{{ topic.label }}</span>】
                     <span class="submitTime">{{ topic.submittime | dateFormat }}</span>
                 </div>
-                <div class="title">{{ topic.title }}</div>
+                <div class="title">
+                    <router-link :to="'/toTopic?id='+topic.id">{{ topic.title }}</router-link>
+                </div>
                 <div class="author_count">
                     <!--<span>{{ topic.username }}</span>
                     <span>{{ topic.replycount }}</span>-->
                     <div class="author">{{ topic.username }}</div>
-                    <div class="count">{{ topic.replycount }}</div>
+                    <div class="count">
+                        <div class="count_reply">
+                            <Icon type="md-text" />
+                            <span> {{ topic.replycount }}</span>
+                        </div>
+                        <div class="count_view">
+                            <Icon type="md-eye" />
+                            <span> {{ topic.viewcount }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </table>
@@ -127,8 +138,8 @@
     }
 
     .table_topic {
-        height: 90px;
-        margin-top: 5px;
+        height: 80px;
+        margin-top: 10px;
     }
 
     .label {
@@ -145,52 +156,27 @@
     .title {
         font-size: 1.2em;
         font-weight: bold;
+        a {
+            color: #515a6e;
+        }
     }
 
     .author {
         float: left;
+        color: #808695;
     }
 
     .count {
         float: right;
     }
 
-    /*.author {
-        text-align: center;
-
-        h3 {
-            color: #7673ff;
-        }
-
-        p {
-            color: #ffa41e;
-        }
-    }*/
-
-    .reply_view {
-        text-align: center;
-        width: 8%;
-        font-size: 1.1em;
-
-        h3 {
-            color: cadetblue;
-        }
-
-        p {
-            color: steelblue;
-        }
+    .count_reply {
+        display: inline;
+        margin-right: 10px;
     }
 
-    .latestReply {
-        text-align: center;
-
-        h3 {
-            color: #7673ff;
-        }
-
-        p {
-            color: #ffa41e;
-        }
+    .count_view {
+        display: inline;
     }
 
     .border_bottom {
