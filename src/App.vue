@@ -117,7 +117,7 @@
         color: #fff;
         font-family: YouYuan;
         text-align: center;
-        margin-top: 8px;
+        margin-top: 10px;
         margin-left: 10px;
     }
 
