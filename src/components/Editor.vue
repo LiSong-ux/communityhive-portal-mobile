@@ -64,6 +64,7 @@
                 //执行xss过滤
                 this.editorContent = xss(html);
             };
+            this.editor.customConfig.zIndex = 1000;
             this.editor.create();
         }
     }

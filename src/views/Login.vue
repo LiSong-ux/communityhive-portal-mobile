@@ -3,7 +3,7 @@
         <div class="container">
             <div class="container_head">登录</div>
             <Form class="container_form" :model="form" label-position="top">
-                <FormItem label="用户名">
+                <FormItem label="账号">
                     <Input v-model="form.account"/>
                 </FormItem>
                 <FormItem label="密码">
