@@ -109,6 +109,7 @@
                     let resp = response.data;
                     if (resp.status != 200) {
                         this.$Message.error(resp.msg);
+                        this.$router.push('/');
                         return;
                     }
                     this.topic = resp.data.topic;
