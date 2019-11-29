@@ -164,7 +164,7 @@
                     }
                     this.$Message.success('验证码发送成功！');
                     this.buttonShow = 2;
-                    const TIME_COUNT = 600;
+                    const TIME_COUNT = 120;
                     this.timer = setInterval(() => {
                         if (this.timeCount > 0 && this.timeCount <= TIME_COUNT) {
                             this.timeCount--
