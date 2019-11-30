@@ -25,13 +25,13 @@
                 <div class="reply_content">
                     <div class="reply_quote" v-if="reply.quote!=0">
                         <!--<div class="quote_icon_e">-->
-                            <div class="reply_quote_head">
-                                <span class="font_quote">引用 @</span>
-                                <span class="reply_quote_info">{{ replyList[reply.quoteIndex].username }}</span>
-                                <span class="font_quote"> 发表的</span>
-                                <span class="reply_quote_floor">{{ replyList[reply.quoteIndex].floor }}楼</span>
-                            </div>
-                            <span v-html="replyList[reply.quoteIndex].content"></span>
+                        <div class="reply_quote_head">
+                            <span class="font_quote">引用 @</span>
+                            <span class="reply_quote_info">{{ replyList[reply.quoteIndex].username }}</span>
+                            <span class="font_quote"> 发表的</span>
+                            <span class="reply_quote_floor">{{ replyList[reply.quoteIndex].floor }}楼</span>
+                        </div>
+                        <span v-html="replyList[reply.quoteIndex].content"></span>
                         <!--</div>-->
                     </div>
                     <span v-html="reply.content"></span>
@@ -114,6 +114,11 @@
                     }
                     this.topic = resp.data.topic;
                     this.pageReplyList = resp.data.replyList;
+                    for (let i = 0; i < this.pageReplyList.length; i++) {
+                        if (this.pageReplyList[i].quote != 0) {
+                            this.pageReplyList[i].quoteIndex = this.pageReplyList[i].quote - 1;
+                        }
+                    }
                     let lastIndex_f = this.replyList.length - 1;
                     if (this.replyList.length == 0 || this.replyList[lastIndex_f].floor < resp.data.replyList[0].floor) {
                         for (let i = 0; i < resp.data.replyList.length; i++) {
@@ -126,6 +131,17 @@
                         for (let i = 0; i < resp.data.replyList.length; i++) {
                             if (this.replyList[lastIndex_s].floor < resp.data.replyList[i].floor) {
                                 this.replyList.push(resp.data.replyList[i]);
+                            }
+                        }
+                    } else if (this.replyList.length != 0 && this.replyList[0].floor < resp.data.replyList[0].floor && this.replyList[lastIndex_s].floor > resp.data.replyList[respLastIndex].floor) {
+                        for (let i = 0; i < this.replyList.length; i++) {
+                            if (this.replyList[i].floor == resp.data.replyList[0].floor) {
+                                break;
+                            } else if (this.replyList[i].floor > resp.data.replyList[0].floor) {
+                                for (let j = 0; j < resp.data.replyList.length; j++) {
+                                    this.replyList.splice(i, 0, resp.data.replyList[j]);
+                                }
+                                break;
                             }
                         }
                     }
