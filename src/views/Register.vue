@@ -134,7 +134,7 @@
                 },
                 buttonShow: 0,
                 timer: null,
-                timeCount: 600,
+                timeCount: 120,
             }
         },
         methods: {
