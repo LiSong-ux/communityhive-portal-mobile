@@ -172,6 +172,7 @@
                             this.buttonShow = 0;
                             clearInterval(this.timer);
                             this.timer = null;
+                            this.timeCount = 120;
                         }
                     }, 1000);
                 })
