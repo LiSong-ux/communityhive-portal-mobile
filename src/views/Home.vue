@@ -138,7 +138,7 @@
     }
 
     .table_topic {
-        height: 80px;
+        overflow: hidden;
         margin-top: 10px;
     }
 
