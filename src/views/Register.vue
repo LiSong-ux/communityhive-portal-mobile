@@ -53,9 +53,9 @@
     export default {
         data() {
             const validateAccount = (rule, value, callback) => {
-                let reg = /^[0-9a-zA-z-_]+$/;
+                let reg = /^[a-zA-Z][-_a-zA-Z0-9]+$/;
                 if (!reg.test(value)) {
-                    callback(new Error('账号必须为英文字母、数字、下划线或减号的组合'));
+                    callback(new Error('账号必须以字母开头，为字母、数字、下划线或减号的组合'));
                 } else {
                     callback();
                 }
@@ -63,6 +63,14 @@
             const validateCheckPwd = (rule, value, callback) => {
                 if (value !== this.form.password) {
                     callback(new Error('两次输入的密码不匹配'));
+                } else {
+                    callback();
+                }
+            };
+            const validateUsername = (rule, value, callback) => {
+                let reg = /^[a-zA-Z0-9\u4e00-\u9fa5]+$/;
+                if (!reg.test(value)) {
+                    callback(new Error('用户名必须为汉字、字母或数字的组合'));
                 } else {
                     callback();
                 }
@@ -99,12 +107,13 @@
                 ruleValidate: {
                     account: [
                         {required: true, message: '请输入账号', trigger: 'blur'},
-                        {max: 32, message: '账号长度不允许超过32位', trigger: 'blur'},
+                        {max: 20, message: '账号长度不允许超过20位', trigger: 'blur'},
                         {min: 9, message: '账号长度不允许低于9位', trigger: 'blur'},
                         {validator: validateAccount, trigger: 'blur'},
                     ],
                     password: [
                         {required: true, message: '请输入密码', trigger: 'blur'},
+                        {max: 32, message: '账号长度不允许超过32位', trigger: 'blur'},
                         {min: 9, message: '密码长度不允许低于9位', trigger: 'blur'},
                     ],
                     checkPwd: [
@@ -115,6 +124,7 @@
                         {required: true, message: '请输入用户名', trigger: 'blur'},
                         {max: 12, message: '用户名长度不允许超过12位', trigger: 'blur'},
                         {min: 2, message: '用户名长度不允许低于2位', trigger: 'blur'},
+                        {validator: validateUsername, trigger: 'blur'}
                     ],
                     // mobile: [
                     //     {required: true, message: '请输入手机号', trigger: 'blur'},
