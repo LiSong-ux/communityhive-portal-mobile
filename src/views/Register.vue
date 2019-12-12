@@ -113,7 +113,7 @@
                     ],
                     username: [
                         {required: true, message: '请输入用户名', trigger: 'blur'},
-                        {max: 24, message: '用户名长度不允许超过24位', trigger: 'blur'},
+                        {max: 12, message: '用户名长度不允许超过12位', trigger: 'blur'},
                         {min: 2, message: '用户名长度不允许低于2位', trigger: 'blur'},
                     ],
                     // mobile: [
