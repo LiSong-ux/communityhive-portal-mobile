@@ -17,7 +17,7 @@
                     <router-link to="/toSubmitTopic">
                         <MenuItem name="2">
                             <Icon type="ios-create" ize="18"/>
-                            <span>发表帖子</span>
+                            <span>发帖</span>
                         </MenuItem>
                     </router-link>
                 </Menu>

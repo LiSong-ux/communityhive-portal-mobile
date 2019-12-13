@@ -8,18 +8,18 @@
                 </div>
                 <div class="topic_head">
                     <div class="topic_author">{{ topic.username }}</div>
-                    <div class="topic_time">发表于 {{ topic.submittime | dateFormat }}</div>
                     <div class="floor">楼主</div>
                 </div>
                 <div class="topic_content" v-html="topic.content"></div>
                 <div class="reply_operate">
                     <a @click="showModal(0)">回复</a>
+                    <span>{{ topic.submittime | dateFormat }}</span>
                 </div>
             </div>
             <div class="reply" v-for="(reply, index) in pageReplyList" :key="index">
                 <div class="reply_head">
                     <div class="reply_author">{{ reply.username }}</div>
-                    <div class="reply_time">发表于 {{ reply.submittime | dateFormat }}</div>
+                    <!--<div class="reply_time">发表于 {{ reply.submittime | dateFormat }}</div>-->
                     <div class="floor">{{ reply.floor }}楼</div>
                 </div>
                 <div class="reply_content">
@@ -38,6 +38,7 @@
                 </div>
                 <div class="reply_operate">
                     <a @click="showModal(reply.floor)">回复</a>
+                    <span>{{ reply.submittime | dateFormat }}</span>
                 </div>
             </div>
             <div class="paging_box">
@@ -276,12 +277,6 @@
         border-right: 2px solid darkgrey;
     }
 
-    .topic_time {
-        color: cadetblue;
-        display: inline;
-        padding: 0px 10px;
-    }
-
     .topic_content {
         width: 100%;
         padding: 0px 15px;
@@ -299,25 +294,21 @@
 
     .reply_head {
         width: 100%;
-        font-size: 1.0em;
+        overflow: hidden;
         border-bottom: 1px solid #999;
     }
 
     .reply_author {
+        float: left;
         color: #27313e;
-        display: inline;
+        font-size: 1.0em;
         padding: 0px 10px;
-        border-right: 2px solid darkgrey;
-    }
-
-    .reply_time {
-        color: cadetblue;
-        display: inline;
-        padding: 0px 10px;
+        /*border-right: 2px solid darkgrey;*/
     }
 
     .floor {
         float: right;
+        font-size: 1.2em;
         margin-right: 15px;
     }
 
@@ -359,16 +350,22 @@
     .reply_operate {
         width: 100%;
         height: 50px;
-        opacity: 0.2;
         line-height: 50px;
         padding: 0px 15px;
         margin-top: 15px;
-        background: url("../assets/icons/lattice.png") left top repeat-x;
+        /*background: url("../assets/icons/lattice.png") left top repeat-x;*/
 
         a {
             color: #333333;
+            opacity: 0.3;
             padding: 5px 10px 5px 25px;
             background: url("../assets/icons/fastreply.gif") no-repeat 0 50%;
+        }
+
+        span {
+            float: right;
+            opacity: 0.9;
+            color: cadetblue;
         }
     }
 
@@ -391,7 +388,7 @@
 
     .submit_reply {
         width: 100%;
-        padding: 35px;
+        padding: 35px 20px;
         margin: 30px auto;
         border-radius: 10px;
         background-color: #fff;
