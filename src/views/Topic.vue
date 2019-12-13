@@ -267,6 +267,7 @@
         width: 100%;
         font-size: 1.0em;
         margin-top: 25px;
+        padding-bottom: 5px;
         border-bottom: 1px solid #999;
     }
 
@@ -274,7 +275,7 @@
         color: #27313e;
         display: inline;
         padding: 0px 10px;
-        border-right: 2px solid darkgrey;
+        /*border-right: 2px solid darkgrey;*/
     }
 
     .topic_content {
