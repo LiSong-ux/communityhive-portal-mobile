@@ -319,6 +319,7 @@
         margin-top: 25px;
         font-size: 1.3em;
         color: #515a6e;
+        word-wrap: break-word;
     }
 
 
