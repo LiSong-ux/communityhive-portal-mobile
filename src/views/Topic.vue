@@ -237,7 +237,7 @@
 
     .topic {
         width: 96%;
-        padding: 20px 20px 0px 20px;
+        padding: 20px 10px 0px 10px;
         margin: 0px auto;
         border-radius: 10px;
         border: 2px solid #819799;
@@ -245,6 +245,7 @@
 
     .topic_top {
         width: 100%;
+        padding: 0px 15px;
         border-bottom: 3px solid #1c5899;
     }
 
@@ -274,8 +275,7 @@
     .topic_author {
         color: #27313e;
         display: inline;
-        padding: 0px 10px;
-        /*border-right: 2px solid darkgrey;*/
+        margin-left: 15px;
     }
 
     .topic_content {
@@ -289,7 +289,7 @@
 
     .reply {
         width: 96%;
-        padding: 20px;
+        padding: 20px 10px;
         margin: 10px auto;
     }
 
@@ -303,8 +303,7 @@
         float: left;
         color: #27313e;
         font-size: 1.0em;
-        padding: 0px 10px;
-        /*border-right: 2px solid darkgrey;*/
+        margin-left: 15px;
     }
 
     .floor {
@@ -328,7 +327,6 @@
         margin: 10px 0px 25px 0px;
         background-color: #eeebeb;
         padding: 10px 10px 10px 15px;
-        /*background: #f1f2f3 url("../assets/icons/icon_quote_s.gif") no-repeat 20px 6px;*/
     }
 
     .font_quote {
@@ -355,7 +353,6 @@
         line-height: 50px;
         padding: 0px 15px;
         margin-top: 15px;
-        /*background: url("../assets/icons/lattice.png") left top repeat-x;*/
 
         a {
             color: #333333;
