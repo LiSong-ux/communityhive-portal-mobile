@@ -8,18 +8,14 @@
             </div>
             <div class="nav">
                 <Menu class="menu" mode="horizontal" :theme="theme" :active-name="selected">
-                    <router-link to="/">
-                        <MenuItem name="1">
-                            <Icon type="md-home" size="18"/>
-                            <span>首页</span>
-                        </MenuItem>
-                    </router-link>
-                    <router-link to="/toSubmitTopic">
-                        <MenuItem name="2">
-                            <Icon type="ios-create" ize="18"/>
-                            <span>发帖</span>
-                        </MenuItem>
-                    </router-link>
+                    <MenuItem name="1" to="/">
+                        <Icon type="md-home" size="18"/>
+                        <span>首页</span>
+                    </MenuItem>
+                    <MenuItem name="2" to="/toSubmitTopic">
+                        <Icon type="ios-create" size="18"/>
+                        <span>发帖</span>
+                    </MenuItem>
                 </Menu>
             </div>
             <div class="login_register" v-if="!isLogin">
@@ -140,7 +136,7 @@
         line-height: 50px !important;
     }
 
-    .nav .ivu-menu-horizontal .ivu-menu-item{
+    .nav .ivu-menu-horizontal .ivu-menu-item {
         padding: 0 10px;
     }
 
