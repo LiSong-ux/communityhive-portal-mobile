@@ -175,6 +175,7 @@
                     let resp = response.data;
                     if (resp.status != 200) {
                         this.instance('error', resp.msg);
+                        return;
                     }
                     this.isClear = true;
                     this.$refs.editor.editorContent = '';
