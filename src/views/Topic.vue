@@ -152,6 +152,7 @@
             },
             submitReply(num) {
                 if (num == 0) {
+                    this.quoteFloor = 0;
                     this.$refs.editor.getContent();
                 } else {
                     this.$refs.editor_qu.getContent();
