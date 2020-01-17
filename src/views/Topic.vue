@@ -400,9 +400,9 @@
         padding: 35px 15px 15px 15px !important;
     }
 
-    .modal_reply /deep/ .ivu-modal-wrap {
+    /*.modal_reply /deep/ .ivu-modal-wrap {
         z-index: 11010 !important;
-    }
+    }*/
 
     .modal_reply_overflow {
         width: 100%;
