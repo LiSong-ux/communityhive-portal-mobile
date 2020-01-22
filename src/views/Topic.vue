@@ -13,7 +13,7 @@
                 <div class="topic_content" v-html="topic.content"></div>
                 <div class="reply_operate">
                     <a @click="showModal(0)">回复</a>
-                    <span>{{ topic.submittime | dateFormat }}</span>
+                    <span>{{ topic.submitTime | dateFormat }}</span>
                 </div>
             </div>
             <div class="reply" v-for="(reply, index) in pageReplyList" :key="index">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="reply_operate">
                     <a @click="showModal(reply.floor)">回复</a>
-                    <span>{{ reply.submittime | dateFormat }}</span>
+                    <span>{{ reply.submitTime | dateFormat }}</span>
                 </div>
             </div>
             <div class="paging_box">
