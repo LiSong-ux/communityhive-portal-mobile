@@ -167,7 +167,7 @@
                     this.$Message.error('请输入内容！');
                     return;
                 }
-                this.newReply.topicId = this.$route.query.id;
+                this.newReply.topic_id = this.$route.query.id;
                 this.newReply.quote = this.quoteFloor;
                 this.newReply.content = this.$store.getters.getContent;
                 this.newReply.terminal = navigator.userAgent;
