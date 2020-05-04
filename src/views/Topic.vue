@@ -181,6 +181,7 @@
                     this.isClear = true;
                     this.$refs.editor.editorContent = '';
                     this.modal = false;
+                    this.quoteFloor = 0;
                     this.getTopic();
                 })
             },
