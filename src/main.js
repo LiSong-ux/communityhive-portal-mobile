@@ -20,7 +20,9 @@ Vue.filter('dateFormat', function (tick) {
 });
 
 //开发环境
-axios.defaults.baseURL = 'http://localhost:8083/communityhive_server_war_exploded';
+axios.defaults.baseURL = 'http://localhost:8080/communityhive_server_war_exploded';
+//图片上传接口
+Vue.prototype.uploadServer = 'http://localhost:8080/communityhive_server_war_exploded/upload/img';
 //生产环境
 //axios.defaults.baseURL = 'http://inhive.net/server';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
