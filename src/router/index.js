@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home'
-import Login from '../views/Login'
-import Register from '../views/Register'
-import SubmitTopic from '../views/SubmitTopic'
-import Topic from '../views/Topic'
-import Notice from '../views/Notice'
+
+const Home = () => import('../views/Home');
+const Login = () => import('../views/Login');
+const Register = () => import('../views/Register');
+const SubmitTopic = () => import('../views/SubmitTopic');
+const Topic = () => import('../views/Topic');
+const Notice = () => import('../views/Notice');
 
 Vue.use(VueRouter)
 
